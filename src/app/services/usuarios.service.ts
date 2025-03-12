@@ -11,8 +11,8 @@ export class UsuariosService {
   private httpClient = inject(HttpClient)
   private urlExterna: string = "https://peticiones.online/api/users"
 
-  getAllPromise(): Promise<IResponse> {
-    return lastValueFrom(this.httpClient.get<IResponse>(this.urlExterna))
+  getAllPromise(url= "https://peticiones.online/api/users?limit=5"): Promise<IResponse> {
+    return lastValueFrom(this.httpClient.get<IResponse>(url))
   }
 
 
