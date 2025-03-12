@@ -1,8 +1,4 @@
-.custom-grid .row {
-    margin-bottom: 10px;
-}
-
-.custom-grid .col-5 {
-    padding: 10px;
-    text-align: center;
+.btn {
+    margin-right: 120px;
+    margin-left: 120px;
 }
