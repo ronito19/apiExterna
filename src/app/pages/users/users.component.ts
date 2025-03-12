@@ -13,31 +13,15 @@ import { UsuarioCardComponent } from "../../components/usuario-card/usuario-card
 export class UsersComponent {
   arrUsuariosPromises: IUsuario[] = [];
   usuariosServices = inject(UsuariosService);
-  linkPrev: string = "";
-  linkNext: string = "";
 
   async ngOnInit() {
     try {
       let response: IResponse = await this.usuariosServices.getAllPromise()
-      this.linkNext = response.links.next;
-      this.linkPrev = response.links.previous;
+      console.log(this.arrUsuariosPromises)
       this.arrUsuariosPromises = response.results
       
     }catch (error) {
       console.log(error)
     }
-  }
-
-
-  async goToNext() {
-    let response: IResponse = await this.usuariosServices.getAllPromise(this.linkNext);
-    this.linkNext = response.links.next;
-    this.linkPrev = response.links.previous;
-    this.arrUsuariosPromises = response.results;
-  }
-
-
-  goToPrev() {
-    
   }
 }
