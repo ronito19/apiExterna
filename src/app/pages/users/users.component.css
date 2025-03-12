@@ -1,0 +1,8 @@
+.custom-grid .row {
+    margin-bottom: 10px;
+}
+
+.custom-grid .col-5 {
+    padding: 10px;
+    text-align: center;
+}

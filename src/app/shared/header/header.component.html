@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand">
+        <figure class="logotipo">
+            <img class="img-fluid" src="./images/logo2.png" alt="" [routerLink]="['/home']">
+        </figure>
+        <p class="parrafo">logo</p>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li>
+            <a class="home">Home</a>
+          </li>
+          <li>
+            <a class="newuser" [routerLink]="['/newuser']">Nuevo Usuario</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

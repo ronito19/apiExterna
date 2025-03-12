@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="card">
+        <figure>
+            <img class="imagesUser" [src]="miUsuario.image" [alt]="miUsuario.first_name && miUsuario.last_name">
+        </figure>
+        <h5 class="h5">{{miUsuario.first_name}}  {{miUsuario.last_name}}</h5>
+        <div class="icons-container">
+            <div class="icon-item">
+                <img class="icon" src="./images/detalle.png" alt="">
+                <span>Ver detalle</span>
+            </div>
+            <div class="icon-item">
+                <img class="icon" src="./images/actualizar.png" alt="">
+                <span>Actualizar</span>
+            </div>
+            <div class="icon-item">
+                <img class="icon" src="./images/borrar.png" alt="">
+                <span>Borrar</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<section class="usuarios">
+    <div class="d-flex justify-content-between py-5">
+        <button class="btn btn-dark">PREV</button> <button class="btn btn-dark">NEXT</button>
+    </div>
+    
+    <div class="row gap-4">  
+        @for(usuario of arrUsuariosPromises; track usuario.id) {
+        <article class="col-12 col-md-6 col-lg-2">
+            <app-usuario-card [miUsuario]="usuario"></app-usuario-card>
+        </article>
+        }
+    </div>
+</section>
