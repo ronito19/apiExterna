@@ -12,13 +12,13 @@ export class UsuariosService {
   private httpClient = inject(HttpClient)
   private urlExterna: string = "https://peticiones.online/api/users"
 
-  getAllPromise(url = "https://peticiones.online/api/users?page=1&limit=10"): Promise<IResponse> {
+  getAllPromise(url = "https://peticiones.online/api/users?limit=10"): Promise<IResponse> {
     return lastValueFrom(this.httpClient.get<IResponse>(url))
   }
 
 
-  getById(id: number): Promise<IUsuario> {
-    return lastValueFrom(this.httpClient.get<IUsuario>(`${this.urlExterna}/${id}`))
+  getById(_id: string): Promise<IUsuario> {
+    return lastValueFrom(this.httpClient.get<IUsuario>(`${this.urlExterna}/${_id}`))
   }
 
 

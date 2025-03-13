@@ -15,10 +15,10 @@ export class VistaUserComponent {
 
 
   async ngOnInit() {
-    let id = Number(this.idUsuario)
+    let _id = String(this.idUsuario)
     console.log(this.idUsuario)
     try {
-      this.elUsuario = await this.usuariosServices.getById(id);
+      this.elUsuario = await this.usuariosServices.getById(_id);
       console.log(this.elUsuario)
     } catch (error) {
     console.log(error)
