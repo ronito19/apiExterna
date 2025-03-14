@@ -11,11 +11,11 @@
             </div>
             <div class="icon-item">
                 <img class="icon" src="./images/actualizar.png" alt="">
-                <span>Actualizar</span>
+                <span [routerLink]="['/updateuser/', miUsuario._id]">Actualizar</span>
             </div>
             <div class="icon-item">
                 <img class="icon" src="./images/borrar.png" alt="">
-                <span>Borrar</span>
+                <span (click)="deleteUsuario(miUsuario._id)">Borrar</span>
             </div>
         </div>
     </div>
