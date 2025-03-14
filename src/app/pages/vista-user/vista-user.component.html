@@ -5,6 +5,7 @@
                 <img class="img-fluid" [src]="elUsuario.image" [alt]="elUsuario.first_name">
             </figure>
         </div>
+        <span class="a"></span>
             <div class="text">
                 <h1>{{elUsuario.first_name}}</h1>
                 <h1>{{elUsuario.last_name}}</h1>
@@ -12,7 +13,7 @@
                 <p><span class="fw-bold">Email:</span> {{elUsuario.email}}</p>
                 <button class="b">Eliminar</button>
                 <button class="b">Actualizar</button>
-                <button class="b">Volver a listado</button>   
+                <button class="b" [routerLink]="['/home']">Volver a listado</button>   
             </div>
     </div>
 </section>

@@ -24,9 +24,11 @@
 
 .text {
     text-align: left;
-    margin-left: 620px;
+    margin-left: 580px;
     margin-top: -500px;
     line-height: 60px;
+    border-left: 2px solid rgb(151, 148, 148);
+    padding-left: 50px;
 }
 
 h1, h3 {
