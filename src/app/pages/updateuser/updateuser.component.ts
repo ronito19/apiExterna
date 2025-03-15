@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-updateuser',
@@ -7,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './updateuser.component.css'
 })
 export class UpdateuserComponent {
+  @Input() idUsuario: string = ""
+  
 
+
+  ngOnInit() {
+    console.log(this.idUsuario)
+  }
 }
