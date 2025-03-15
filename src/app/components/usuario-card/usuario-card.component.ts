@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { IUsuario } from '../../interfaces/iusuario.interface';
 import { RouterLink } from '@angular/router';
 import { toast, NgxSonnerToaster } from 'ngx-sonner';
+import { UsuariosService } from '../../services/usuarios.service';
 
 @Component({
   selector: 'app-usuario-card',
@@ -11,6 +12,7 @@ import { toast, NgxSonnerToaster } from 'ngx-sonner';
 })
 export class UsuarioCardComponent {
   @Input() miUsuario!: IUsuario;
+  usuariosServices = inject(UsuariosService);
 
 
   deleteUsuario(_id: string) {
@@ -18,15 +20,14 @@ export class UsuarioCardComponent {
       ${this.miUsuario.last_name}?`, {
         action: {
           label: 'Aceptar',
-          onClick: () => {
-            this.confirmDelete(_id);
+          onClick: async () => {
+            let response = await this.usuariosServices.delete(_id);
+            //window.location.href = '/home'
           },
         },
       });
   }
 
 
-  confirmDelete(_id: string) {
-    console.log(`El usuario con ID ${_id}, HA SIDO ELIMINADO`);
-  }
+  
 }

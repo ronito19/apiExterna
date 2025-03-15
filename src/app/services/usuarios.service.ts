@@ -22,5 +22,10 @@ export class UsuariosService {
   }
 
 
+  delete(_id: string): Promise<IUsuario> {
+    return lastValueFrom(this.httpClient.delete<IUsuario>(`${this.urlExterna}/${_id}`))
+  }
+
+
 
 }

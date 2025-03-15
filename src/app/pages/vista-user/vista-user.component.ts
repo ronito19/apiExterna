@@ -6,15 +6,16 @@ import { NgxSonnerToaster, toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-vista-user',
-  imports: [RouterLink,],
+  imports: [RouterLink],
   templateUrl: './vista-user.component.html',
   styleUrl: './vista-user.component.css'
 })
 export class VistaUserComponent {
   @Input() idUsuario: string = "";
-  elUsuario!: IUsuario;
+  elUsuario: any = {}
   @Input() miUsuario!: IUsuario;
   usuariosServices = inject(UsuariosService);
+  
 
 
   async ngOnInit() {
@@ -23,8 +24,9 @@ export class VistaUserComponent {
     try {
       this.elUsuario = await this.usuariosServices.getById(_id);
       console.log(this.elUsuario)
+
     } catch (error) {
-    console.log(error)
+    console.log('Error al cargar el usuario:', error)
     }
   }
 
@@ -34,15 +36,14 @@ export class VistaUserComponent {
         ${this.miUsuario.last_name}?`, {
           action: {
             label: 'Aceptar',
-            onClick: () => {
-              this.confirmDelete(_id);
+            onClick: async () => {
+              let response = await this.usuariosServices.delete(_id);
+              //window.location.href = '/home'
             },
           },
         });
     }
   
   
-    confirmDelete(_id: string) {
-      console.log(`El usuario con ID ${_id}, HA SIDO ELIMINADO`);
-    }
+    
 }
