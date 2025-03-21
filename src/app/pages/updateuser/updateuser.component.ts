@@ -23,12 +23,13 @@ export class UpdateuserComponent {
       this.usuario = await this.usuariosService.getById(this.idUsuario);
       console.log(this.usuario)
     }
+
     this.usuarioForm = new FormGroup ({
         _id: new FormControl(this.usuario._id || null, []),
         id: new FormControl(this.usuario.id || 0, []),
         first_name: new FormControl(this.usuario.first_name || "", []),
         last_name: new FormControl(this.usuario.last_name || "", []),
-        username: new FormControl(this.usuario.username || "null", []),
+        username: new FormControl(this.usuario.username || "", []),
         email: new FormControl(this.usuario.email || "", []),
         image: new FormControl(this.usuario.image || "", []),
         password: new FormControl(this.usuario.password || "", []),

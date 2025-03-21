@@ -25,9 +25,9 @@
         <div class="input-group">
             <input [type]="showPassword ? 'text' : 'password'" class="form-control" id="password" formControlName="password" placeholder="Enter password">
             <div class="input-group-append">
-                <input type="button" class="btn btn-outline-secondary" (click)="togglePasswordVisibility()">{{ showPassword ? 'Ocultar' : 'VerPass' }}
+                <input type="button" class="btn btn-outline-secondary toggle-button" (click)="togglePasswordVisibility()" [style.backgroundImage]=" showPassword ? 'url(images/eye-slash.svg)' : 'url(images/eye.svg)'" value="">
             </div>
         </div>
     </div>
-    <input type="submit" class="btn btn-dark" [value]="usuarioForm.get('_id')?.value ? 'Actualizar Usuario' : 'Guardar Usuario' ">
+    <input type="submit" class="btn btn-dark" [value]="usuarioForm.get('_id')?.value ? 'Actualizar' : 'Registrar' ">
 </form>

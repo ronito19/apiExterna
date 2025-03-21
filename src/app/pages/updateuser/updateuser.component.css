@@ -4,3 +4,22 @@
     font-family: 'Times New Roman', Times, serif;
     font-size: 25px;
 }
+
+.input-group {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    max-width: 600px;  
+}
+
+.toggle-button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    text-align: center;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 26px 26px;
+    cursor: pointer;
+}
