@@ -14,7 +14,7 @@ export class UpdateuserComponent {
   usuarioForm: FormGroup = new FormGroup({}, [])
   usuario!: IUsuario;
   usuariosService = inject(UsuariosService);
-
+  showPassword: boolean = false;
   
 
 
@@ -39,6 +39,11 @@ export class UpdateuserComponent {
 
     getDataForm() {
 
+    }
+
+
+    togglePasswordVisibility() {
+      this.showPassword = !this.showPassword;
     }
   }
 
