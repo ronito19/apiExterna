@@ -17,7 +17,7 @@ export class UsuariosService {
   }
 
 
-  getById(_id: string): Promise<IUsuario> {
+  getById(_id: string) : Promise<IUsuario> {
     return lastValueFrom(this.httpClient.get<IUsuario>(`${this.urlExterna}/${_id}`))
   }
 

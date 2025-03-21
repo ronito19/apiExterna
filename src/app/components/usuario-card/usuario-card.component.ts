@@ -16,15 +16,25 @@ export class UsuarioCardComponent {
 
 
   deleteUsuario(_id: string) {
-    toast(`Quieres borrar al usuario ${this.miUsuario.first_name} 
-      ${this.miUsuario.last_name}?`, {
-        action: {
-          label: 'Aceptar',
-          onClick: async () => {
-            let response = await this.usuariosServices.delete(_id);
-            //window.location.href = '/home'
+    if (!this.miUsuario) {
+      console.log('miUsuario no esta definido');
+      return;
+    }
+      toast(`Deseas borrar al usuario ${this.miUsuario.first_name} 
+        ${this.miUsuario.last_name}?`, {
+          action: 
+          {
+            label: 'Aceptar',
+            onClick: async () => {
+              try {
+              let response = await this.usuariosServices.delete(_id);
+              console.log('Usuario eliminado:', response);
+              //window.location.href = '/home'
+              } catch (error) {
+                console.log('Error al eliminar el usuario:', error);
+              }
+            },
           },
-        },
       });
   }
 

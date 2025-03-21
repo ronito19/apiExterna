@@ -1,27 +1,28 @@
-<form class="form">
+<form class="form" [formGroup]="usuarioForm" (ngSubmit)="getDataForm()">
+    <input type="hidden" formControlName="_id">
     <div class="mb-4">
         <label for="first_name">First Name</label>
-        <input type="text" class="form-control" id="first_name" placeholder="Enter first name">
+        <input type="text" class="form-control" id="first_name" formControlName="first_name" placeholder="Enter first name">
     </div>
     <div class="mb-4">
         <label for="last_name">Last Name</label>
-        <input type="text" class="form-control" id="last_name" placeholder="Enter last name">
+        <input type="text" class="form-control" id="last_name" formControlName="last_name" placeholder="Enter last name">
     </div>
     <div class="mb-4">
         <label for="username">Username</label>
-        <input type="text" class="form-control" id="username" placeholder="Enter username">
+        <input type="text" class="form-control" id="username" formControlName="username" placeholder="Enter username">
     </div>
     <div class="mb-4">
         <label for="email">Email</label>
-        <input type="text" class="form-control" id="email" placeholder="Enter email">
+        <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter email">
     </div>
     <div class="mb-4">
         <label for="image">Image</label>
-        <input type="text" class="form-control" id="image" placeholder="Enter image URL">
+        <input type="text" class="form-control" id="image" formControlName="image" placeholder="Enter image URL">
     </div>
     <div class="mb-4">
         <label for="password">Password</label>
-        <input type="text" class="form-control" id="password" placeholder="Enter password">
+        <input type="text" class="form-control" id="password" formControlName="password" placeholder="Enter password">
     </div>
-    <input type="submit" class="btn btn-dark" value="Guardar Usuario">
+    <input type="submit" class="btn btn-dark" [value]="usuarioForm.get('_id')?.value ? 'Actualizar Usuario' : 'Guardar Usuario' ">
 </form>

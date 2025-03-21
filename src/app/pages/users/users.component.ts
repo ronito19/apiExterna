@@ -27,7 +27,7 @@ export class UsersComponent {
   }
 
 
-
+  deleteUsuario(event: Boolean) {}
   
 
   

@@ -11,7 +11,7 @@
                 <p><span class="fw-bold">Nombre Usuario:</span>  {{elUsuario.username}}</p>
                 <p><span class="fw-bold">Email:</span> {{elUsuario.email}}</p>
                 <button class="b" (click)="deleteUsuario(miUsuario._id)">Eliminar</button>
-                <button class="b" [routerLink]="['/updateuser/:idUsuario']">Actualizar</button>
+                <button class="b" [routerLink]="['/updateuser/elUsuario._id']">Actualizar</button>
                 <button class="b" [routerLink]="['/home']">Volver a listado</button>   
             </div>
     </div>
