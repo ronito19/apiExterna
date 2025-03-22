@@ -1,33 +1,40 @@
-<form class="form" [formGroup]="usuarioForm" (ngSubmit)="getDataForm()">
-    <input type="hidden" formControlName="_id">
-    <div class="mb-4">
-        <label for="first_name">First Name</label>
-        <input type="text" class="form-control" id="first_name" formControlName="first_name" placeholder="Enter first name">
-    </div>
-    <div class="mb-4">
-        <label for="last_name">Last Name</label>
-        <input type="text" class="form-control" id="last_name" formControlName="last_name" placeholder="Enter last name">
-    </div>
-    <div class="mb-4">
-        <label for="username">Username</label>
-        <input type="text" class="form-control" id="username" formControlName="username" placeholder="Enter username">
-    </div>
-    <div class="mb-4">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter email">
-    </div>
-    <div class="mb-4">
-        <label for="image">Image</label>
-        <input type="text" class="form-control" id="image" formControlName="image" placeholder="Enter image URL">
-    </div>
-    <div class="mb-4">
-        <label for="password">Password</label>
-        <div class="input-group">
-            <input [type]="showPassword ? 'text' : 'password'" class="form-control" id="password" formControlName="password" placeholder="Enter password">
-            <div class="input-group-append">
-                <input type="button" class="btn btn-outline-secondary toggle-button" (click)="togglePasswordVisibility()" [style.backgroundImage]=" showPassword ? 'url(images/eye-slash.svg)' : 'url(images/eye.svg)'" value="">
+<section>
+    <h1>{{ usuarioForm.get('_id')?.value ? 'ACTUALIZAR USUARIO' : 'NUEVO USUARIO' }}</h1>
+    <form class="form" [formGroup]="usuarioForm" (ngSubmit)="getDataForm()">
+        <input type="hidden" formControlName="_id">
+        <div class="mb-4">
+            <label for="id">ID</label>
+            <input type="number" class="form-control" id="id" formControlName="id" placeholder="Enter id">
+        </div>
+        <div class="mb-4">
+            <label for="first_name">First Name</label>
+            <input type="text" class="form-control" id="first_name" formControlName="first_name" placeholder="Enter first name">
+        </div>
+        <div class="mb-4">
+            <label for="last_name">Last Name</label>
+            <input type="text" class="form-control" id="last_name" formControlName="last_name" placeholder="Enter last name">
+        </div>
+        <div class="mb-4">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" formControlName="username" placeholder="Enter username">
+        </div>
+        <div class="mb-4">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter email">
+        </div>
+        <div class="mb-4">
+            <label for="image">Image</label>
+            <input type="text" class="form-control" id="image" formControlName="image" placeholder="Enter image URL">
+        </div>
+        <div class="mb-4">
+            <label for="password">Password</label>
+            <div class="input-group">
+                <input [type]="showPassword ? 'text' : 'password'" class="form-control" id="password" formControlName="password" placeholder="Enter password">
+                <div class="input-group-append">
+                    <input type="button" class="btn btn-outline-secondary toggle-button" (click)="togglePasswordVisibility()" [style.backgroundImage]=" showPassword ? 'url(images/eye-slash.svg)' : 'url(images/eye.svg)'" value="">
+                </div>
             </div>
         </div>
-    </div>
-    <input type="submit" class="btn btn-dark" [value]="usuarioForm.get('_id')?.value ? 'Actualizar' : 'Registrar' ">
-</form>
+        <input type="submit" class="btn btn-dark" [value]="usuarioForm.get('_id')?.value ? 'Actualizar' : 'Registrar' ">
+    </form>
+</section>

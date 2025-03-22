@@ -21,25 +21,25 @@ export class UpdateuserComponent {
   async ngOnInit() {
     if (this.idUsuario) {
       this.usuario = await this.usuariosService.getById(this.idUsuario);
-      console.log(this.usuario)
+      //console.log(this.usuario)
     }
 
     this.usuarioForm = new FormGroup ({
-        _id: new FormControl(this.usuario._id || null, []),
-        id: new FormControl(this.usuario.id || 0, []),
-        first_name: new FormControl(this.usuario.first_name || "", []),
-        last_name: new FormControl(this.usuario.last_name || "", []),
-        username: new FormControl(this.usuario.username || "", []),
-        email: new FormControl(this.usuario.email || "", []),
-        image: new FormControl(this.usuario.image || "", []),
-        password: new FormControl(this.usuario.password || "", []),
+        _id: new FormControl(this.idUsuario || null, []),
+        id: new FormControl(this.usuario?.id || 0, []),
+        first_name: new FormControl(this.usuario?.first_name || "", []),
+        last_name: new FormControl(this.usuario?.last_name || "", []),
+        username: new FormControl(this.usuario?.username || "", []),
+        email: new FormControl(this.usuario?.email || "", []),
+        image: new FormControl(this.usuario?.image || "", []),
+        password: new FormControl(this.usuario?.password || "", []),
     }, [])
 
     }
 
 
     getDataForm() {
-
+      console.log(this.usuarioForm.value)
     }
 
 

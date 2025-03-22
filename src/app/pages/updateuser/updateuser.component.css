@@ -1,6 +1,11 @@
+h1 {
+    margin-left: 380px;
+    margin-top: 30px;
+}
+
 .form {
     margin: 50px auto;
-    width: 700px;
+    width: 1000px;
     font-family: 'Times New Roman', Times, serif;
     font-size: 25px;
 }
