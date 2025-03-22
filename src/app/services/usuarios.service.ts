@@ -27,5 +27,15 @@ export class UsuariosService {
   }
 
 
+  update(usuario: IUsuario): Promise<IUsuario> {
+    return lastValueFrom (this.httpClient.put<IUsuario>(`${this.urlExterna}/${usuario._id}`, usuario))
+  }
+
+
+  insert(usuario: IUsuario) {
+
+  }
+
+
 
 }

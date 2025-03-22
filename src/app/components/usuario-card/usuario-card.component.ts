@@ -1,7 +1,7 @@
 import { Component, inject, Input } from '@angular/core';
 import { IUsuario } from '../../interfaces/iusuario.interface';
 import { RouterLink } from '@angular/router';
-import { toast, NgxSonnerToaster } from 'ngx-sonner';
+import { toast } from 'ngx-sonner';
 import { UsuariosService } from '../../services/usuarios.service';
 
 @Component({

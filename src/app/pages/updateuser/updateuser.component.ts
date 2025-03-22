@@ -2,6 +2,7 @@ import { Component, inject, Input } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { IUsuario } from '../../interfaces/iusuario.interface';
 import { UsuariosService } from '../../services/usuarios.service';
+import { toast } from 'ngx-sonner';
 
 @Component({
   selector: 'app-updateuser',
@@ -15,13 +16,19 @@ export class UpdateuserComponent {
   usuario!: IUsuario;
   usuariosService = inject(UsuariosService);
   showPassword: boolean = false;
-  
+  title: string = "Registrar";
 
 
   async ngOnInit() {
     if (this.idUsuario) {
-      this.usuario = await this.usuariosService.getById(this.idUsuario);
-      //console.log(this.usuario)
+      try {
+        this.usuario = await this.usuariosService.getById(this.idUsuario);
+        this.title = 'Actualizar'
+      } catch(msg: any) {
+        toast.error(msg.error.error)
+      }
+      
+      
     }
 
     this.usuarioForm = new FormGroup ({
@@ -34,12 +41,16 @@ export class UpdateuserComponent {
         image: new FormControl(this.usuario?.image || "", []),
         password: new FormControl(this.usuario?.password || "", []),
     }, [])
-
+    
     }
 
 
     getDataForm() {
-      console.log(this.usuarioForm.value)
+      if (this.usuarioForm.value._id) {
+        let response = this.usuariosService.update(this.usuarioForm.value);
+      } else {
+
+      }
     }
 
 

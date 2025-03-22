@@ -16,40 +16,40 @@ export class VistaUserComponent {
   @Input() miUsuario: IUsuario | any;
   usuariosServices = inject(UsuariosService);
   @Output() deleteItemEmit: EventEmitter<Boolean> = new EventEmitter();
-
+  
   
 
 
   async ngOnInit() {
     let _id = String(this.idUsuario)
-    console.log('idUsuario:', this.idUsuario)
+    console.log('ID recibido:', this.idUsuario)
+    if (!this.idUsuario) {
+      console.log('ID de usuario no proporcionado');
+      return;
+    }
     try {
-      this.elUsuario = await this.usuariosServices.getById(_id);
-      console.log('elUsuario:', this.elUsuario)
-
+      this.elUsuario = await this.usuariosServices.getById(this.idUsuario);
+      console.log('Usuario cargado:', this.elUsuario)
+      this.miUsuario = this.elUsuario;
     } catch (error) {
     console.log('Error al cargar el usuario:', error)
-    }
-
-    if (this.elUsuario) {
-      this.miUsuario = this.elUsuario;
     }
   }
 
 
   deleteUsuario(_id: string) {
-    if (!this.miUsuario) {
+    if (!this.elUsuario || !this.elUsuario._id) {
       console.log('miUsuario no esta definido');
       return;
     }
-      toast(`Deseas borrar al usuario ${this.miUsuario.first_name} 
-        ${this.miUsuario.last_name}?`, {
+      toast(`Deseas borrar al usuario ${this.elUsuario.first_name} 
+        ${this.elUsuario.last_name}?`, {
           action: 
           {
             label: 'Aceptar',
             onClick: async () => {
               try {
-              let response = await this.usuariosServices.delete(_id);
+              let response = await this.usuariosServices.delete(this.elUsuario._id);
               console.log('Usuario eliminado:', response);
               //window.location.href = '/home'
               } catch (error) {
