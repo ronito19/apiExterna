@@ -12,8 +12,8 @@ export class UsuariosService {
   private httpClient = inject(HttpClient)
   private urlExterna: string = "https://peticiones.online/api/users"
 
-  getAllPromise(url = "https://peticiones.online/api/users?limit=10"): Promise<IResponse> {
-    return lastValueFrom(this.httpClient.get<IResponse>(url))
+  getAllPromise(page: number = 1): Promise<IResponse> {
+    return lastValueFrom(this.httpClient.get<IResponse>(`${this.urlExterna}?page=${page}`))
   }
 
 
@@ -28,12 +28,14 @@ export class UsuariosService {
 
 
   update(usuario: IUsuario): Promise<IUsuario> {
-    return lastValueFrom (this.httpClient.put<IUsuario>(`${this.urlExterna}/${usuario._id}`, usuario))
+    let { _id, ...usuarioBody } = usuario;
+    return lastValueFrom (this.httpClient.put<IUsuario>(`${this.urlExterna}/${_id}`, usuarioBody))
   }
 
 
-  insert(usuario: IUsuario) {
-
+  insert(usuario: IUsuario): Promise<IUsuario> {
+    let { _id, ...usuarioBody } = usuario;
+    return lastValueFrom (this.httpClient.post<IUsuario>(this.urlExterna, usuarioBody))
   }
 
 

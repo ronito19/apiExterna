@@ -18,11 +18,21 @@ export class UsersComponent {
 
   async ngOnInit() {
     try {
-      let response: IResponse = await this.usuariosServices.getAllPromise()
-      console.log(this.arrUsuariosPromises);
+      let response = await this.usuariosServices.getAllPromise()
       this.arrUsuariosPromises = response.results;
+      console.log(this.arrUsuariosPromises);
     } catch (error) {
       console.log(error)
+    }
+  }
+
+
+  async goToPage(n: number) {
+    try {
+      let response = await this.usuariosServices.getAllPromise(n);
+      this.arrUsuariosPromises = response.results;
+    }catch (error) {
+
     }
   }
 
