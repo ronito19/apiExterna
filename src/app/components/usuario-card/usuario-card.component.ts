@@ -29,9 +29,10 @@ export class UsuarioCardComponent {
               try {
               let response = await this.usuariosServices.delete(_id);
               console.log('Usuario eliminado:', response);
-              //window.location.href = '/home'
+                toast.success('Usuario eliminado correctamente')
               } catch (error) {
                 console.log('Error al eliminar el usuario:', error);
+                toast.success('Error al eliminar el usuario')
               }
             },
           },

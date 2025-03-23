@@ -1,7 +1,7 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { IUsuario } from '../../interfaces/iusuario.interface';
 import { UsuariosService } from '../../services/usuarios.service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { NgxSonnerToaster, toast } from 'ngx-sonner';
 
 @Component({
@@ -16,7 +16,7 @@ export class VistaUserComponent {
   @Input() miUsuario: IUsuario | any;
   usuariosServices = inject(UsuariosService);
   @Output() deleteItemEmit: EventEmitter<Boolean> = new EventEmitter();
-  
+  router = inject(Router)
   
 
 
@@ -51,11 +51,14 @@ export class VistaUserComponent {
               try {
               let response = await this.usuariosServices.delete(this.elUsuario._id);
               console.log('Usuario eliminado:', response);
-              //window.location.href = '/home'
+              toast.success('Usuario eliminado correctamente');
+              this.deleteItemEmit.emit(true)
+              this.router.navigate(['/home']);
               } catch (error) {
                 console.log('Error al eliminar el usuario:', error);
+                toast.error('Error al eliminar el usuario')
               }
-              this.deleteItemEmit.emit(true)
+              
             },
           },
       });
