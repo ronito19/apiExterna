@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { IUsuario } from '../../interfaces/iusuario.interface';
 import { UsuariosService } from '../../services/usuarios.service';
-import { ILink, IMeta, IResponse } from '../../interfaces/iresponse.interface';
 import { UsuarioCardComponent } from "../../components/usuario-card/usuario-card.component";
 
 @Component({
@@ -27,17 +26,18 @@ export class UsersComponent {
   }
 
 
-  async goToPage(n: number) {
+  async goToPage(page: number) {
     try {
-      let response = await this.usuariosServices.getAllPromise(n);
+      let response = await this.usuariosServices.getAllPromise(page);
       this.arrUsuariosPromises = response.results;
     }catch (error) {
 
     }
   }
+  
 
 
-  deleteUsuario(event: Boolean) {}
+  
   
 
   

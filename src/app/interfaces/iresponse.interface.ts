@@ -1,6 +1,7 @@
 import { IUsuario } from "./iusuario.interface";
 
 export interface IResponse {
+    totalPages: number;
     results: IUsuario[];
     meta: IMeta;
     links: ILink;
