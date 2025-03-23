@@ -21,6 +21,16 @@
         <div class="mb-4">
             <label for="email">Email</label>
             <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter email">
+            @if (usuarioForm.get('email')?.invalid && usuarioForm.get('email')?.touched) {
+                <div class="text-danger">
+                    @if (usuarioForm.get('email')?.errors?.['required']) {
+                        <div>El campo es obligatorio</div>
+                    }
+                    @if (usuarioForm.get('email')?.errors?.['email']) {
+                        <div>El formato del Email no es valido</div>
+                    }
+                </div>
+            }
         </div>
         <div class="mb-4">
             <label for="image">Image</label>

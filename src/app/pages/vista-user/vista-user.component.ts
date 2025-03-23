@@ -28,7 +28,7 @@ export class VistaUserComponent {
       return;
     }
     try {
-      this.elUsuario = await this.usuariosServices.getById(this.idUsuario);
+      this.elUsuario = await this.usuariosServices.getById(_id);
       console.log('Usuario cargado:', this.elUsuario)
       this.miUsuario = this.elUsuario;
     } catch (error) {
